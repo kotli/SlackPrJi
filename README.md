@@ -3,7 +3,7 @@
 ## Todo
 
 ### Slack
-- [ ] create a conection with slack   
+- [x] create a connection with slack   
 - [ ] try to make some changes on slack message   
 
 ### Github
