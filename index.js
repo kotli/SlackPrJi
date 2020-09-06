@@ -1,5 +1,5 @@
-require('dotenv').config();
-const { WebClient } = require('@slack/web-api');
+require("dotenv").config();
+const { WebClient } = require("@slack/web-api");
 
 const web = new WebClient();
 
@@ -12,7 +12,8 @@ async function fetchHistory(id) {
     const result = await web.conversations.history({
       // The token you used to initialize your app
       token: process.env.SLACK_ACCESS_TOKEN,
-      channel: id
+      channel: id,
+      limit: 1, // will retrive the latest
     });
 
     conversationHistory = result.messages;
@@ -21,19 +22,16 @@ async function fetchHistory(id) {
     await web.reactions.add({
       token: process.env.SLACK_ACCESS_TOKEN,
       channel: id,
-      name: 'thumbsup',
-      timestamp: conversationHistory[0].ts
-    })
+      name: "thumbsup",
+      timestamp: conversationHistory[0].ts,
+    });
     // }
 
     // Print results
-    console.log(conversationHistory.length + ' messages found in ' + id);
-  }
-  catch (error) {
+    console.log(conversationHistory.length + " messages found in " + id);
+  } catch (error) {
     console.error(error);
   }
 }
-
-
 
 fetchHistory(process.env.SLACK_CHANNEL_ID);
