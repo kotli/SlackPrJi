@@ -4,7 +4,7 @@
 
 ### Slack
 - [x] create a connection with slack   
-- [ ] try to make some changes on slack message   
+- [x] add an emoji to existing message   
 
 ### Github
 - [ ] create a github flow that fetches from our repo   
