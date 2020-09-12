@@ -14,6 +14,10 @@ const app = express();
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors());
+
+app.use('/slack/event', eventApi);
+// the event adapter can only work if it comes before the body parser in the middleware stack
+// it can use only raw reqeust
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -21,8 +25,6 @@ app.get('/', (req, res) => {
     message: '🦄🌈✨👋✨🌈🦄',
   });
 });
-
-app.use('/slack/event', eventApi);
 app.use('/fetch-history', fetchHistory);
 
 app.use(middlewares.notFound);

@@ -1,7 +1,6 @@
 const express = require('express');
 const { createEventAdapter } = require('@slack/events-api');
-// const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
-const slackSigningSecret = process.env.SLACK_TOKEN;
+const slackSigningSecret = process.env.SLACK_SIGNING_SECRET;
 const slackEvents = createEventAdapter(slackSigningSecret);
 
 const router = express.Router();
@@ -12,7 +11,7 @@ slackEvents.on('message', (event) => {
   );
 });
 
-router.use('/slack/event', slackEvents.requestListener());
+router.use('/', slackEvents.requestListener());
 
 router.get('/', (req, res) => {
   res.json({
