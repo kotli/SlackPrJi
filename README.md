@@ -6,7 +6,8 @@
 
 - [x] create a connection with slack
 - [x] add an emoji to a message
-- [ ] receive event for new message in the channel
+- [ ] receive event for new message in the channel (https://api.slack.com/events-api)
+  - [ ] need to create some sort of pub-sub to get an event, or use ngrok
   - [ ] see that message includes a PR-like url [link_shared event](https://api.slack.com/events/link_shared)
 
 ### Github
