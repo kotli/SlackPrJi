@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/kotli/SlackPrJi#readme",
   "dependencies": {
+    "@slack/events-api": "^2.3.4",
     "@slack/web-api": "^5.11.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

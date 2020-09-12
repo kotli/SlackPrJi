@@ -1,4 +1,3 @@
-
 const { WebClient } = require('@slack/web-api');
 
 const web = new WebClient();
@@ -6,7 +5,7 @@ const web = new WebClient();
 let conversationHistory;
 
 // Fetch conversation history using ID from last example
-export async function fetchHistory(id) {
+async function fetchHistory(id) {
   try {
     // Call the conversations.history method using the built-in WebClient
     const result = await web.conversations.history({
@@ -35,3 +34,4 @@ export async function fetchHistory(id) {
 }
 
 // fetchHistory(process.env.SLACK_CHANNEL_ID);
+module.exports = fetchHistory;

@@ -6,7 +6,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 const middlewares = require('./middlewares');
-const api = require('./api');
+const fetchHistory = require('./lib/fetch-history');
+const eventApi = require('./api');
 
 const app = express();
 
@@ -17,11 +18,12 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json({
-    message: '🦄🌈✨👋✨🌈🦄'
+    message: '🦄🌈✨👋✨🌈🦄',
   });
 });
 
-app.use('/slack/event', api);
+app.use('/slack/event', eventApi);
+app.use('/fetch-history', fetchHistory);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
